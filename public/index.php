@@ -7,10 +7,9 @@ Autoloader::register();
 
 session_start();
 
-// Get the request
 $request = $_SERVER['REQUEST_URI'];
 
-// Route the request
+ob_start();
 switch ($request) {
     case '/' :
         require __DIR__ . '/../views/home.php';
@@ -23,9 +22,8 @@ switch ($request) {
         require __DIR__ . '/../views/404.php';
         break;
 }
+$content=ob_get_clean();
 
-ob_start();
-require __DIR__ . '/../views/home.php';
-$content = ob_get_clean();
-require __DIR__ . '/../views/layout.php';
+require __DIR__ . '/../views/base.php';
+
 ?>

@@ -33,4 +33,14 @@ class artistesRepository{
         return new artistes($value['id'], $value['nom']);
     }
 
+    public function find3RandomArtistes()
+    {
+        $result = $this->pdo->query('SELECT * FROM artistes ORDER BY RANDOM() LIMIT 3');
+        $artistes = [];
+        foreach ($result as $value) {
+            $artistes[] = new artistes($value['id'], $value['nom']);
+        }
+        return $artistes;
+    }
+
 }
