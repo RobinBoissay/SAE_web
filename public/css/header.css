@@ -1,0 +1,186 @@
+
+header{
+    background-color: #126A5C;
+    width: 99vw;
+    margin-left: 0.5vw;
+    margin-top: 0.5vw;
+    margin-right: 0.5vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+.navigation{
+    margin-left: 1em;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+#menuToggle input{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: #1C1D37;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s ease, background 0.5s ease, opacity 0.55s ease;
+}
+
+#menuToggle span:first-child{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2){
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3){
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+#menuToggle input:checked ~ span:nth-last-child(2){
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.cacher{
+  display: none;
+}
+.menu{
+    display: block;
+    position: absolute;
+    width:400px;
+    height: 400px;
+    background-color: #00613E;
+    border-radius: 100%;
+    padding: 50px;
+    top: -180px;
+    left: -180px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center ;
+    flex-direction: column;
+    gap: 2em;
+    }
+
+.menu li
+{
+  font-size: 26px;
+  font-weight: 700;
+    color: white
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+
+
+/*Partie Search Bar */
+
+.WrapperSearchBar{
+  margin-left: 1vw;
+  
+}
+.WrapperSearchBar form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1C1D37;
+  border-radius: 20px;
+  padding: 2px;
+  padding-right: 5px;
+}
+
+.searchBar{
+  background-color: #1C1D37;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 300px;
+  border: none;
+  height:25px;
+  color:white;
+}
+.searchBar:focus{
+  outline:none;
+}
+
+.btnSearch{
+  background-color: #0d0e46;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: none;
+}
+.btnSearch:active {
+  transform: scale(1.1);
+  background-color: #111448;
+}
+
+.connection button{
+  background-color: #1C1D37;
+  border: none;
+  border-radius: 20px;
+  padding: 5px;
+  min-width: 150px;
+  height:39px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0,-50%);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .searchBar{
+    min-width:50px;
+  }
+}
