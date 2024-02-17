@@ -18,7 +18,7 @@ class Autoloader{
      */
     static function autoload($fqcn){
         $path = str_replace('\\', '/', $fqcn);
-        require 'Classes/' . $path . '.php';
+        require __DIR__ . '/' . $path . '.php';
     }
 
 }

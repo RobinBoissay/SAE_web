@@ -116,15 +116,16 @@ class YamlProvider
     private function insertAlbum($album, $artistId, $genreIds)
     {
         $stmt = $this->pdo->prepare('
-            INSERT INTO albums (titre, annee, artiste_id, image)
-            VALUES (:titre, :annee, :artiste_id, :image)
+            INSERT INTO albums (titre, annee, artiste_id, image, date)
+            VALUES (:titre, :annee, :artiste_id, :image, :date)
         ');
 
         $stmt->execute([
             ':titre' => $album['title'],
             ':annee' => $album['releaseYear'],
             ':artiste_id' => $artistId,
-            ':image' => $album['img']
+            ':image' => $album['img'],
+            ':date' => date('Y-m-d H:i:s')
         ]);
 
         $albumId = $this->pdo->lastInsertId();

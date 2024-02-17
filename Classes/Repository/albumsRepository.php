@@ -19,7 +19,7 @@ class albumsRepository{
         $result = $this->pdo->query('SELECT * FROM albums');
         $albums = [];
         foreach ($result as $value) {
-            $albums[] = new albums($value['id'], $value['nom'], $value['artiste'], $value['date'], $value['genre_id']);
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
         }
         return $albums;
     }
@@ -30,7 +30,7 @@ class albumsRepository{
         $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
         $stmt->execute();
         $value = $stmt->fetch();
-        return new albums($value['id'], $value['nom'], $value['artiste'], $value['date'], $value['genre_id']);
+        return new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
     }
 
     public function find8LastAlbums()
@@ -38,7 +38,7 @@ class albumsRepository{
         $result = $this->pdo->query('SELECT * FROM albums ORDER BY date DESC LIMIT 8');
         $albums = [];
         foreach ($result as $value) {
-            $albums[] = new albums($value['id'], $value['nom'], $value['artiste'], $value['date'], $value['genre_id']);
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
         }
         return $albums;
     }

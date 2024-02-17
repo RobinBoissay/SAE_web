@@ -10,14 +10,17 @@ class albums{
     private $annee;
     private $artiste_id;
     private $image;
+    private $date;
 
-    public function __construct($id, $titre, $annee, $artiste_id, $image)
+    public function __construct($id, $titre, $annee, $artiste_id, $image, $date)
     {
         $this->id = $id;
         $this->titre = $titre;
         $this->annee = $annee;
         $this->artiste_id = $artiste_id;
         $this->image = $image;
+        $this->date = $date;
+
     }
 
     public function getId()
@@ -45,6 +48,11 @@ class albums{
         return $this->image;
     }
 
+    public function getDate()
+    {
+        return $this->date;
+    }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -68,6 +76,11 @@ class albums{
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
     }
 
 }
