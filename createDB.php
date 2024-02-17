@@ -1,6 +1,6 @@
 <?php
 
-require 'Classes/autoloader.php';
+require __DIR__ . '/Classes/autoloader.php';
 Autoloader::register();
 
 try {
