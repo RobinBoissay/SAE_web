@@ -66,9 +66,31 @@
 </section>
 
 <section class="troisArtistes">
-    <div class="premierArtiste"></div>
-    <div class="deuxiemeArtiste"></div>
-    <div class="troisiemeArtiste"></div>
+    <div class="premierArtiste">
+        <?php
+        echo '<h2>'.$artiste1->getNom().'</h2>';
+        echo '<img src="img/'.$albumArtiste1->getImage().'" alt="image de l\'album '.$albumArtiste1->getTitre().'">';
+        echo '<h3>'.$albumArtiste1->getTitre().'</h2>';
+        echo '<p>'.$albumArtiste1->getAnnee().'</p>';
+        ?>
+    </div>
+    <div class="deuxiemeArtiste">
+        <?php
+        echo '<h2>'.$artiste2->getNom().'</h2>';
+        echo '<img src="img/'.$albumArtiste2->getImage().'" alt="image de l\'album '.$albumArtiste2->getTitre().'">';
+        echo '<h3>'.$albumArtiste2->getTitre().'</h2>';
+        echo '<p>'.$albumArtiste2->getAnnee().'</p>';
+        ?>
+    </div>
+        
+    <div class="troisiemeArtiste">
+        <?php
+        echo '<h2>'.$artiste3->getNom().'</h2>';
+        echo '<img src="img/'.$albumArtiste3->getImage().'" alt="image de l\'album '.$albumArtiste3->getTitre().'">';
+        echo '<h3>'.$albumArtiste3->getTitre().'</h2>';
+        echo '<p>'.$albumArtiste3->getAnnee().'</p>';
+        ?>
+    </div>
 
 </section>
 

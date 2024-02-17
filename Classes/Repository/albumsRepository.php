@@ -43,4 +43,13 @@ class albumsRepository{
         return $albums;
     }
 
+    public function findOneRandomAlbumByArtist($artiste_id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM albums WHERE artiste_id = :artiste_id ORDER BY RANDOM() LIMIT 1');
+        $stmt->bindParam(':artiste_id', $artiste_id, SQLITE3_INTEGER);
+        $stmt->execute();
+        $value = $stmt->fetch();
+        return new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
+    }
+
 }

@@ -8,6 +8,7 @@ Autoloader::register();
 use Repository\albumsRepository;
 use Repository\genresRepository;
 use Repository\albums_genresRepository;
+use Repository\artistesRepository;
 
 session_start();
 
@@ -16,6 +17,7 @@ $request = $_SERVER['REQUEST_URI'];
 $albumsRepository = new albumsRepository();
 $genresRepository = new genresRepository();
 $albums_genresRepository = new albums_genresRepository();
+$artistesRepository = new artistesRepository();
 
 ob_start();
 switch ($request) {
@@ -38,6 +40,15 @@ switch ($request) {
         foreach ($albumsIdGenre3 as $albumIdGenre3) {
             $albumsGenre3[] = $albumsRepository->find($albumIdGenre3->getAlbum_id());
         }
+        $artisteAleatoires = $artistesRepository->find3RandomArtistes();
+        $artiste1 = $artisteAleatoires[0];
+        $albumArtiste1 = $albumsRepository->findOneRandomAlbumByArtist($artiste1->getId());
+        $artiste2 = $artisteAleatoires[1];
+        $albumArtiste2 = $albumsRepository->findOneRandomAlbumByArtist($artiste2->getId());
+        $artiste3 = $artisteAleatoires[2];
+        $albumArtiste3 = $albumsRepository->findOneRandomAlbumByArtist($artiste3->getId());
+
+
         require __DIR__ . '/../views/home.php';
         break;
     default:
