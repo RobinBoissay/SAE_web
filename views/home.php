@@ -6,6 +6,8 @@
     <title>Document</title>
     <link href="../public/css/header.css" rel="stylesheet" />
     <link href="../public/css/base.css" rel="stylesheet" />
+    <link href="../public/css/home.css" rel="stylesheet" />
+
     <script defer src="../public/js/header.js"></script>
 </head>
 <body>
@@ -22,9 +24,9 @@
                 <span></span>
 
                 <ul class="cacher">
-                <a href="#"><li>Playlist</li></a>
-                <a href="#"><li>Albums</li></a>
-                <a href="#"><li>Artistes</li></a>
+                    <a href="#"><li>Playlist</li></a>
+                    <a href="#"><li>Albums</li></a>
+                    <a href="#"><li>Artistes</li></a>
                 </ul>
             </div>
         </nav>
@@ -43,6 +45,50 @@
     </header>
     <!-- Fin partie Header  -->
 
+    <main>
+        <section class="wrapperNouvelleSorties">
+            <ul>
+                <!-- mon li donc pas touche -->
+                <li class="barreNouvelleSortie"></li>
+                <!--  -->
+
+                <!-- Tes 8 li à toi -->
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <!--  -->
+
+                
+
+            </ul>
+
+        </section>
+        <section class="troisGenreAlbums">
+
+            <div class="premierGenre">
+                <ul></ul>
+            </div>
+            <div class="deuxiemeGenre">
+                <ul></ul>
+            </div>
+            <div class="troisiemeGenre">
+                <ul></ul>
+            </div>
+
+        </section>
+
+        <section class="troisArtistes">
+            <div class="premierArtiste"></div>
+            <div class="deuxiemeArtiste"></div>
+            <div class="troisiemeArtiste"></div>
+
+        </section>
+    </main>
 
 </body>
 </html>
