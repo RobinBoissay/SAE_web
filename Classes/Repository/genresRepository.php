@@ -33,4 +33,14 @@ class genresRepository{
         return new genres($value['id'], $value['nom']);
     }
 
+    public function find3randomGenres()
+    {
+        $result = $this->pdo->query('SELECT * FROM genres ORDER BY RANDOM() LIMIT 3');
+        $genres = [];
+        foreach ($result as $value) {
+            $genres[] = new genres($value['id'], $value['nom']);
+        }
+        return $genres;
+    }
+
 }

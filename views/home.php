@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +90,6 @@
 
         </section>
     </main>
-
 </body>
 </html>
+

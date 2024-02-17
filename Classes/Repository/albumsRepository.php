@@ -33,4 +33,14 @@ class albumsRepository{
         return new albums($value['id'], $value['nom'], $value['artiste'], $value['date'], $value['genre_id']);
     }
 
+    public function find8LastAlbums()
+    {
+        $result = $this->pdo->query('SELECT * FROM albums ORDER BY date DESC LIMIT 8');
+        $albums = [];
+        foreach ($result as $value) {
+            $albums[] = new albums($value['id'], $value['nom'], $value['artiste'], $value['date'], $value['genre_id']);
+        }
+        return $albums;
+    }
+
 }
