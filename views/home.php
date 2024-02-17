@@ -16,7 +16,11 @@
 
 </section>
 <section class="troisGenreAlbums">
-
+    <div class="barTransitionGenre">
+        <p class="numGenre"> 3 &nbsp &nbsp<img src="img/headphone.svg" alt="image de casque de musique"> Styles </p>
+        <p> aléatoires</p>
+    
+    </div>
     <div class="premierGenre">
         <?php
             echo '<h2>'.$genreAleatoire1->getNom().'</h2>';
