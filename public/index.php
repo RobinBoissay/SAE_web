@@ -51,6 +51,18 @@ switch ($request) {
 
         require __DIR__ . '/../views/home.php';
         break;
+    case '/artistes':
+        // Affichage de la page artistes avec leurs albums
+        $artistes = $artistesRepository->findAll();
+        foreach ($artistes as $artiste) {
+            $albumsArtiste[$artiste->getId()] = $albumsRepository->findAllAlbumsByArtist($artiste->getId());
+        }
+        require __DIR__ . '/../views/artistes.php';
+        break;
+    case '/albums':
+        $albums = $albumsRepository->findAll();
+        require __DIR__ . '/../views/albums.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/../views/404.php';

@@ -52,4 +52,16 @@ class albumsRepository{
         return new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
     }
 
+    public function findAllAlbumsByArtist($artiste_id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM albums WHERE artiste_id = :artiste_id');
+        $stmt->bindParam(':artiste_id', $artiste_id, SQLITE3_INTEGER);
+        $stmt->execute();
+        $albums = [];
+        foreach ($stmt as $value) {
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
+        }
+        return $albums;
+    }
+
 }
