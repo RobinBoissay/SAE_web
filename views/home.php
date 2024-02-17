@@ -1,24 +1,18 @@
+<link href="../css/home.css" rel="stylesheet">
 <section class="wrapperNouvelleSorties">
     <ul>
-        <!-- mon li donc pas touche -->
-        <li class="barreNouvelleSortie"></li>
-        <!--  -->
+        <li class="barreNouvelleSortie">Les nouvelles sorties</li>
 
         <?php
-            # Affiche les 8 derniers albums sortis
             foreach ($albums as $album) {
                 echo '<li>';
                 echo '<img src="img/'.$album->getImage().'" alt="image de l\'album '.$album->getTitre().'">';
-                echo '<p>'.$album->getTitre().'</p>';
+                echo '<h2>'.$album->getTitre().'</h2>';
                 echo '<p>'.$album->getAnnee().'</p>';
                 echo '<p>'.$album->getDate().'</p>';
                 echo '</li>';
             }
-
-
         ?>
-        
-
     </ul>
 
 </section>
