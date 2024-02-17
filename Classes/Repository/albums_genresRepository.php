@@ -19,7 +19,7 @@ class albums_genresRepository{
         $result = $this->pdo->query('SELECT * FROM albums_genres');
         $albums_genres = [];
         foreach ($result as $value) {
-            $albums_genres[] = new albums_genres($value['album_id'], $value['genre_id']);
+            $albums_genres[] = new albums_genres($value['$id'], $value['album_id'], $value['genre_id']);
         }
         return $albums_genres;
     }
@@ -31,7 +31,7 @@ class albums_genresRepository{
         $stmt->bindParam(':genre_id', $genre_id, SQLITE3_INTEGER);
         $stmt->execute();
         $value = $stmt->fetch();
-        return new albums_genres($value['album_id'], $value['genre_id']);
+        return new albums_genres($value['$id'], $value['album_id'], $value['genre_id']);
     }
 
     public function find6RandomAlbumsByGenre($genre_id)
@@ -41,7 +41,7 @@ class albums_genresRepository{
         $stmt->execute();
         $albums_genres = [];
         foreach ($stmt as $value) {
-            $albums_genres[] = new albums_genres($value['album_id'], $value['genre_id']);
+            $albums_genres[] = new albums_genres($value['$id'], $value['album_id'], $value['genre_id']);
         }
         return $albums_genres;
     }
