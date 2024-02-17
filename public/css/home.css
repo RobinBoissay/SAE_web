@@ -1,7 +1,9 @@
 .wrapperNouvelleSorties{
     margin-top: 1em;
-    width:96vw;
-    margin-left: 1vw;
+    width:94    vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+
     padding: 1vw;
     background-color: #126A5C;
     border-radius: 20px;
@@ -17,18 +19,21 @@
     color: white;
 }
 
-.wrapperNouvelleSorties li{
+.wrapperNouvelleSorties li:not(:nth-child(1)){
 
-    background-color: red;
     border-radius: 20px;
     background-color: #1C1D37;
+    padding-bottom: 1em;
+}
+.wrapperNouvelleSorties li h2{
+    margin-top: 1em;
 }
 .wrapperNouvelleSorties li:hover{
     transform: scale(1.03);
 }
 .wrapperNouvelleSorties img{
     width: 100%;
-    max-height: 100px;
+    max-height: 180px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -36,23 +41,23 @@
     padding-left: 8px;
 }
 
-li:nth-child(9){
+.wrapperNouvelleSorties li:nth-child(9){
     grid-column: 1/21;
     grid-row: 1/11;
 }
-li:nth-child(2){
+.wrapperNouvelleSorties li:nth-child(2){
     grid-column: 21 / 37;
     grid-row: 1/11;
 }
-li:nth-child(3){
+.wrapperNouvelleSorties li:nth-child(3){
     grid-column: 37/50;
     grid-row: 1/11;
 }
-li:nth-child(4){
+.wrapperNouvelleSorties li:nth-child(4){
     grid-column: 50/65;
     grid-row: 1/11;
 }
-li:nth-child(1){
+.wrapperNouvelleSorties li:nth-child(1){
     background-color: #00613E;
     grid-column: 16 / 47;
     grid-row: 11/14;
@@ -63,20 +68,66 @@ li:nth-child(1){
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.768);
+    border-radius: 20px;
+
 }
-li:nth-child(6){
+
+.wrapperNouvelleSorties li:nth-child(1):hover{
+    transform: scale(1);
+}
+.wrapperNouvelleSorties li:nth-child(6){
     grid-column: 1 / 15;
     grid-row: 11 / 26;
 }
-li:nth-child(7){
+.wrapperNouvelleSorties li:nth-child(7){
     grid-column: 15/32;
     grid-row: 14/26;
 }
-li:nth-child(8){
+.wrapperNouvelleSorties li:nth-child(8){
     grid-column: 32/48;
     grid-row: 14/26;
 }
-li:nth-child(5){
+.wrapperNouvelleSorties li:nth-child(5){
     grid-column: 48/65;
     grid-row: 11/26;
 }
+
+
+.barTransitionGenre{
+    width: 100vw;
+    background-color: #27295164;
+    height: 200px;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.numGenre, .barTransitionGenre p{
+    position: relative;
+    font-size: 68px;
+    color: white;
+}
+
+.numGenre img{
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 3cap;
+    transform: translateX(-40%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
