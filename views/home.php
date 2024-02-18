@@ -9,6 +9,7 @@
                 echo '<img src="img/'.$album->getImage().'" alt="image de l\'album '.$album->getTitre().'">';
                 echo '<h2>'.$album->getTitre().'</h2>';
                 echo '<p>'.$album->getAnnee().'</p>';
+                echo '<h3>'. $artisteAlbumDerniereSortie[$album->getId()]->getNom() .'</h3>';
                 echo '</li>';
             }
         ?>
@@ -30,6 +31,7 @@
                 echo '<img src="img/'.$album->getImage().'" alt="image de l\'album '.$album->getTitre().'">';
                 echo '<h2>'.$album->getTitre().'</h2>';
                 echo '<p>'.$album->getAnnee().'</p>';
+                echo '<h3>'. $artisteAlbum1[$album->getId()]->getNom()  .'</h3>';
                 echo '</li>';
             }
             echo '</ul>';
@@ -46,6 +48,7 @@
             echo '<img src="img/'.$album->getImage().'" alt="image de l\'album '.$album->getTitre().'">';
             echo '<h2>'.$album->getTitre().'</h2>';
             echo '<p>'.$album->getAnnee().'</p>';
+            echo '<h3>'. $artisteAlbum2[$album->getId()]->getNom()  .'</h3>';
             echo '</li>';
         }
         echo '</ul>';
@@ -61,6 +64,7 @@
             echo '<img src="img/'.$album->getImage().'" alt="image de l\'album '.$album->getTitre().'">';
             echo '<h2>'.$album->getTitre().'</h2>';
             echo '<p>'.$album->getAnnee().'</p>';
+            echo '<h3>'. $artisteAlbum3[$album->getId()]->getNom()  .'</h3>';   
             echo '</li>';
         }
         echo '</ul>';

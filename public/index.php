@@ -34,21 +34,31 @@ switch ($request) {
     case '':
     case '/' :
         $albumsDerniereSorties = $albumsRepository->find8LastAlbums();
+        $artisteAlbumDerniereSortie = [];
+        foreach ($albumsDerniereSorties as $albumDerniereSortie) {
+            $artisteAlbumDerniereSortie[$albumDerniereSortie->getId()] = $artistesRepository->find($albumDerniereSortie->getArtiste_id());
+        }
         $genreAleatoires = $genresRepository->find3randomGenres();
         $genreAleatoire1 = $genreAleatoires[0];
         $albumsIdGenre1 = $albums_genresRepository->find6RandomAlbumsByGenre($genreAleatoire1->getId());
         foreach ($albumsIdGenre1 as $albumIdGenre1) {
-            $albumsGenre1[] = $albumsRepository->find($albumIdGenre1->getAlbum_id());
+            $albums1 = $albumsRepository->find($albumIdGenre1->getAlbum_id());
+            $albumsGenre1[] = $albums1;
+            $artisteAlbum1[$albums1->getId()] = $artistesRepository->find($albumsRepository->find($albumIdGenre1->getAlbum_id())->getArtiste_id());
         }
         $genreAleatoire2 = $genreAleatoires[1];
         $albumsIdGenre2 = $albums_genresRepository->find6RandomAlbumsByGenre($genreAleatoire2->getId());
         foreach ($albumsIdGenre2 as $albumIdGenre2) {
-            $albumsGenre2[] = $albumsRepository->find($albumIdGenre2->getAlbum_id());
+            $albums2 = $albumsRepository->find($albumIdGenre2->getAlbum_id());
+            $albumsGenre2[] = $albums2;
+            $artisteAlbum2[$albums2->getId()] = $artistesRepository->find($albumsRepository->find($albumIdGenre2->getAlbum_id())->getArtiste_id());
         }
         $genreAleatoire3 = $genreAleatoires[2];
         $albumsIdGenre3 = $albums_genresRepository->find6RandomAlbumsByGenre($genreAleatoire3->getId());
         foreach ($albumsIdGenre3 as $albumIdGenre3) {
-            $albumsGenre3[] = $albumsRepository->find($albumIdGenre3->getAlbum_id());
+            $albums3 = $albumsRepository->find($albumIdGenre3->getAlbum_id());
+            $albumsGenre3[] = $albums3;
+            $artisteAlbum3[$albums3->getId()] = $artistesRepository->find($albumsRepository->find($albumIdGenre3->getAlbum_id())->getArtiste_id());
         }
         $artisteAleatoires = $artistesRepository->find3RandomArtistes();
         $artiste1 = $artisteAleatoires[0];
