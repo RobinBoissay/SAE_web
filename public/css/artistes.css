@@ -1,0 +1,44 @@
+.wrapperSectionArtiste{
+    width:100%;
+    padding: 30px;
+    background-color: #126A5C;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+}
+.wrapperSectionArtiste > div> div{
+    display: flex;
+    flex-wrap: wrap ;
+}
+
+.wrapperSectionArtiste h2{
+    color: white;
+    font-weight: 700;
+}
+.wrapperSectionArtiste h2{
+    margin-left: 10px;
+    margin-top: 2em;
+
+}
+.wrapperSectionArtiste p{
+    margin-left: 10px;
+}
+
+.wrapperSectionArtiste > div > div > div{
+    border-radius: 20px;
+    background-color: #1C1D37;
+    padding-bottom: 1em;
+    margin-left: 1em;
+    margin-top: .5em;
+    width: 240px;
+    height: 180px;
+    color: white;
+
+}
+
+.wrapperSectionArtiste > div > div > div img{
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    width: 100%;
+    height: 50%;
+}
