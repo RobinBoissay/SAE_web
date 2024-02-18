@@ -37,9 +37,6 @@
             </form>
         </div>
         <div><a href="/admin">Admin</a></div>
-        <div class="connection">
-            <button> Se connecter</button>
-        </div>
 
     </header>
     <main>
