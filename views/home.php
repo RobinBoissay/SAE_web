@@ -23,7 +23,7 @@
     </div>
     <div class="premierGenre">
         <?php
-            echo '<h2>'.$genreAleatoire1->getNom().'</h2>';
+            echo '<h2 class="titre">'.$genreAleatoire1->getNom().'</h2>';
             echo '<ul>';
             foreach ($albumsGenre1 as $album) {
                 echo '<li>';
@@ -39,7 +39,7 @@
     </div>
     <div class="deuxiemeGenre">
         <?php
-        echo '<h2>'.$genreAleatoire2->getNom().'</h2>';
+        echo '<h2 class="titre">'.$genreAleatoire2->getNom().'</h2>';
         echo '<ul>';
         foreach ($albumsGenre2 as $album) {
             echo '<li>';
@@ -54,7 +54,7 @@
     </div>
     <div class="troisiemeGenre">
         <?php
-        echo '<h2>'.$genreAleatoire3->getNom().'</h2>';
+        echo '<h2 class="titre">'.$genreAleatoire3->getNom().'</h2>';
         echo '<ul>';
         foreach ($albumsGenre3 as $album) {
             echo '<li>';
@@ -68,8 +68,13 @@
     </div>
 
 </section>
-
+<div class="barTransitionGenre">
+        <p class="numGenre"> 3 &nbsp &nbsp<img src="img/headphone.svg" alt="image de casque de musique"> Artistes </p>
+        <p> à découvrir</p>
+    
+    </div>
 <section class="troisArtistes">
+   
     <div class="premierArtiste">
         <?php
         echo '<h2>'.$artiste1->getNom().'</h2>';
@@ -95,7 +100,7 @@
         echo '<p>'.$albumArtiste3->getAnnee().'</p>';
         ?>
     </div>
-
 </section>
+<a href="pageArtiste" class="aArtiste">Voir tout les artistes</a>
 
 
