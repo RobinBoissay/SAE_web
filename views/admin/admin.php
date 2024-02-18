@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/admin.css">
+
 <section class="dashboard">
     <h1>Dashboard</h1>
     <div class="wrapperDashboard">
