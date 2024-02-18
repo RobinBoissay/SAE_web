@@ -109,4 +109,39 @@ class albumsRepository{
         return $albums;
     }
 
+    public function countAlbums()
+    {
+        $result = $this->pdo->query('SELECT COUNT(*) FROM albums');
+        return $result->fetchColumn();
+    }
+
+    public function create($titre, $artiste_id, $annee, $image)
+    {
+        $stmt = $this->pdo->prepare('INSERT INTO albums (titre, artiste_id, annee, image, date) VALUES (:titre, :artiste_id, :annee, :image, :date)');
+        $stmt->bindParam(':titre', $titre, SQLITE3_TEXT);
+        $stmt->bindParam(':artiste_id', $artiste_id, SQLITE3_INTEGER);
+        $stmt->bindParam(':annee', $annee, SQLITE3_INTEGER);
+        $stmt->bindParam(':image', $image, SQLITE3_TEXT);
+        $stmt->bindParam(':date', date('Y-m-d H:i:s'), SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function update($id, $titre, $artiste_id, $annee, $image)
+    {
+        $stmt = $this->pdo->prepare('UPDATE albums SET titre = :titre, artiste_id = :artiste_id, annee = :annee, image = :image WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->bindParam(':titre', $titre, SQLITE3_TEXT);
+        $stmt->bindParam(':artiste_id', $artiste_id, SQLITE3_INTEGER);
+        $stmt->bindParam(':annee', $annee, SQLITE3_INTEGER);
+        $stmt->bindParam(':image', $image, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM albums WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+
 }

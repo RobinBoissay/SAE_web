@@ -43,4 +43,32 @@ class artistesRepository{
         return $artistes;
     }
 
+    public function countArtistes()
+    {
+        $stmt = $this->pdo->query('SELECT COUNT(*) FROM artistes');
+        return $stmt->fetchColumn();
+    }
+
+    public function create($nom)
+    {
+        $stmt = $this->pdo->prepare('INSERT INTO artistes (nom) VALUES (:nom)');
+        $stmt->bindParam(':nom', $nom, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function update($id, $nom)
+    {
+        $stmt = $this->pdo->prepare('UPDATE artistes SET nom = :nom WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->bindParam(':nom', $nom, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM artistes WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+
 }

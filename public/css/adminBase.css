@@ -1,0 +1,37 @@
+main {
+    display: flex;
+    
+}
+
+.nav{
+    background-color: #126A5C;
+    flex-basis: 20%;
+    min-height: 85vh;
+    margin-left: 1%;
+    margin-top: 0.5%;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.nav h2{
+    color: white;
+    margin-top: 0.5em;
+    font-size: 200%;
+}
+
+.nav ul{
+    margin-top: 1em;
+}
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: 0.3s;
+    font-size: 120%;
+}

@@ -1,0 +1,55 @@
+/* FILEPATH: /home/korentin/Documents/BUT/2Annee/SAE/SAE_web/public/css/adminArtist.css */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+td {
+    vertical-align: middle;
+    color: black
+}
+
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}

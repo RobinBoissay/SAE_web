@@ -86,6 +86,66 @@ switch ($request) {
         }
         require __DIR__ . '/../views/albums.php';
         break;
+    case '/admin':
+        $nbAlbums = $albumsRepository->countAlbums();
+        $nbGenres = $genresRepository->countGenres();
+        $nbArtistes = $artistesRepository->countArtistes();
+        $nbUsers = 0;
+        $albumsRecents = $albumsRepository->find8LastAlbums();
+        require __DIR__ . '/../views/admin/admin.php';
+        break;
+    case str_starts_with($request, '/admin/artists'):
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch ($_POST['_method']) {
+                case 'POST':
+                    $artistesRepository->create($_POST['nom']);
+                    break;
+                case 'PUT':
+                    $artistesRepository->update($_POST['id'], $_POST['nom']);
+                    break;
+                case 'DELETE':
+                    $artistesRepository->delete($_POST['id']);
+                    break;
+            }    
+        }
+        $artistes = $artistesRepository->findAll();
+        require __DIR__ . '/../views/admin/artistCRUD.php';
+        break;
+    case str_starts_with($request, '/admin/genres'):
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch ($_POST['_method']) {
+                case 'POST':
+                    $genresRepository->create($_POST['nom']);
+                    break;
+                case 'PUT':
+                    $genresRepository->update($_POST['id'], $_POST['nom']);
+                    break;
+                case 'DELETE':
+                    $genresRepository->delete($_POST['id']);
+                    break;
+            }    
+        }
+        $genres = $genresRepository->findAll();
+        require __DIR__ . '/../views/admin/genreCRUD.php';
+        break;
+    case str_starts_with($request, '/admin/albums'):
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            switch ($_POST['_method']) {
+                case 'POST':
+                    $albumsRepository->create($_POST['titre'], $_POST['artiste'], $_POST['annee'], $_POST['image']);
+                    break;
+                case 'PUT':
+                    $albumsRepository->update($_POST['id'], $_POST['titre'], $_POST['artiste'], $_POST['annee'], $_POST['image']);
+                    break;
+                case 'DELETE':
+                    $albumsRepository->delete($_POST['id']);
+                    break;
+            }    
+        }
+        $albums = $albumsRepository->findAll();
+        $artistes = $artistesRepository->findAll();
+        require __DIR__ . '/../views/admin/albumCRUD.php';
+        break;
     default:
         http_response_code(404);
         require __DIR__ . '/../views/404.php';
@@ -93,6 +153,13 @@ switch ($request) {
 }
 $content=ob_get_clean();
 
+ob_start();
+if (str_starts_with($request, '/admin')) {
+    require __DIR__ . '/../views/admin/adminBase.php';
+}
+$adminNav = ob_get_clean();
+
 require __DIR__ . '/../views/base.php';
+
 
 ?>

@@ -43,4 +43,32 @@ class genresRepository{
         return $genres;
     }
 
+    public function countGenres()
+    {
+        $stmt = $this->pdo->query('SELECT COUNT(*) FROM genres');
+        return $stmt->fetchColumn();
+    }
+
+    public function create($nom)
+    {
+        $stmt = $this->pdo->prepare('INSERT INTO genres (nom) VALUES (:nom)');
+        $stmt->bindParam(':nom', $nom, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function update($id, $nom)
+    {
+        $stmt = $this->pdo->prepare('UPDATE genres SET nom = :nom WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->bindParam(':nom', $nom, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+
+    public function delete($id)
+    {
+        $stmt = $this->pdo->prepare('DELETE FROM genres WHERE id = :id');
+        $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+
 }
