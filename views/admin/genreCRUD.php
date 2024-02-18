@@ -1,4 +1,3 @@
-<link href="../css/adminArtist.css" rel="stylesheet">
 <section class="content">
     <h2>Genres</h2>
     <form method="POST" action="/admin/genres">

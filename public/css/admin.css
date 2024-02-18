@@ -1,4 +1,38 @@
-/* FILEPATH: /home/korentin/Documents/BUT/2Annee/SAE/SAE_web/public/css/adminArtist.css */
+
+input[type="text"],
+select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+table form {
+    display: inline-block;
+    margin: 0;
+}
+  
+table form input[type="hidden"] {
+    display: none;
+}
+
+table form input[type="text"] {
+    width: auto;
+    margin-bottom: 0;
+}
+
+table form button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #dc3545;
+}
 
 table {
     width: 100%;
