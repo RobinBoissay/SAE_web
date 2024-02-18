@@ -64,4 +64,49 @@ class albumsRepository{
         return $albums;
     }
 
+    public function findAllYears()
+    {
+        $result = $this->pdo->query('SELECT DISTINCT annee FROM albums ORDER BY annee DESC');
+        $years = [];
+        foreach ($result as $value) {
+            $years[] = $value['annee'];
+        }
+        return $years;
+    }
+
+    public function findAllAlbumsByYear($year)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM albums WHERE annee = :year');
+        $stmt->bindParam(':year', $year, SQLITE3_INTEGER);
+        $stmt->execute();
+        $albums = [];
+        foreach ($stmt as $value) {
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
+        }
+        return $albums;
+    }
+
+    public function findAllAlbumsByGenre($genre_id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM albums NATURAL JOIN albums_genres WHERE genre_id = :genre_id');
+        $stmt->bindParam(':genre_id', $genre_id, SQLITE3_INTEGER);
+        $stmt->execute();
+        $albums = [];
+        foreach ($stmt as $value) {
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
+        }
+        return $albums;
+    }
+
+    public function findAllAlbumsByString($string)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM albums WHERE titre LIKE :titre');
+        $stmt->execute([':titre' => '%'.$string.'%']);
+        $albums = [];
+        foreach ($stmt as $value) {
+            $albums[] = new albums($value['id'], $value['titre'], $value['annee'], $value['artiste_id'], $value['image'], $value['date']);
+        }
+        return $albums;
+    }
+
 }

@@ -19,6 +19,16 @@ $genresRepository = new genresRepository();
 $albums_genresRepository = new albums_genresRepository();
 $artistesRepository = new artistesRepository();
 
+$artist = isset($_GET['artist']) ? $_GET['artist'] : null;
+$artist = $artist ? (int)$artist : null;
+$genre = isset($_GET['genre']) ? $_GET['genre'] : null;
+$genre = $genre ? (int)$genre : null;
+$year = isset($_GET['year']) ? $_GET['year'] : null;
+$year = $year ? (int)$year : null;
+$search = isset($_GET['search']) ? $_GET['search'] : null;
+$search = $search ? (string)$search : null;
+
+
 ob_start();
 switch ($request) {
     case '':
@@ -59,8 +69,21 @@ switch ($request) {
         }
         require __DIR__ . '/../views/artistes.php';
         break;
-    case '/albums':
-        $albums = $albumsRepository->findAll();
+    case str_starts_with($request, '/albums'):
+        $genres = $genresRepository->findAll();
+        $artistes = $artistesRepository->findAll();
+        $annees = $albumsRepository->findAllYears();
+        if($search !== null){
+            $albums = $albumsRepository->findAllAlbumsByString($search);
+        }elseif ($artist !== null) {
+            $albums = $albumsRepository->findAllAlbumsByArtist($artist);
+        } elseif ($genre !== null) {
+            $albums = $albumsRepository->findAllAlbumsByGenre($genre);
+        } elseif ($year !== null) {
+            $albums = $albumsRepository->findAllAlbumsByYear($year);
+        } else {
+            $albums = $albumsRepository->findAll();
+        }
         require __DIR__ . '/../views/albums.php';
         break;
     default:

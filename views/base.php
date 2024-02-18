@@ -22,20 +22,21 @@
                 <span></span>
 
                 <ul class="cacher">
-                <a href="#"><li>Playlist</li></a>
-                <a href="#"><li>Albums</li></a>
-                <a href="#"><li>Artistes</li></a>
+                <a href="/"><li>Accueil</li></a>
+                <a href="/playlist"><li>Playlist</li></a>
+                <a href="/albums"><li>Albums</li></a>
+                <a href="/artistes"><li>Artistes</li></a>
                 </ul>
             </div>
         </nav>
 
         <div class="WrapperSearchBar">
-            <form action="">
-                <input class="searchBar" type="text">
+            <form action="/albums" method="GET">
+                <input class="searchBar" type="text" id="search" name="search" placeholder="Rechercher">
                 <input class="btnSearch" type="submit" value="">
             </form>
         </div>
-        
+        <div><a href="/admin">Admin</a></div>
         <div class="connection">
             <button> Se connecter</button>
         </div>

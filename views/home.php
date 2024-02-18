@@ -101,6 +101,6 @@
         ?>
     </div>
 </section>
-<a href="pageArtiste" class="aArtiste">Voir tout les artistes</a>
+<a href="/artistes" class="aArtiste">Voir tout les artistes</a>
 
 
