@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../css/adminAlbum.css">
+
 <section class="content">
     <h2>Albums</h2>
     <form method="POST" action="/admin/albums">
@@ -9,9 +11,15 @@
             <?php } ?>
         </select>
         <input type="text" name="image" placeholder="Image de l'album">
+        <div class="wrapperGenre">
+
+        
         <?php foreach ($genres as $genre) { ?>
-            <input type="checkbox" name="genres[]" value="<?php echo $genre->getId(); ?>"><?php echo $genre->getNom(); ?><br>
+            <div class="inputGenre">
+            <input  type="checkbox" name="genres[]" value="<?php echo $genre->getId(); ?>"><?php echo $genre->getNom(); ?><br>
+            </div>
         <?php } ?>
+        </div>
         
         <input type="hidden" name="_method" value="POST">
         <button type="submit">Ajouter un album</button>

@@ -10,3 +10,18 @@ body{
     overflow-x: hidden;
     padding-bottom: 2em;
 }
+
+.btnAdmin{
+    margin-left: 1em;
+    background-color: #1C1D37;
+    padding: 8px;
+    border-radius: 20px;
+}
+.btnAdmin:hover{
+    transform: scale(1.05);
+}
+
+.btnAdmin a{
+    color:white;
+
+}

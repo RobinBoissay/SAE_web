@@ -9,7 +9,7 @@ use Repository\albumsRepository;
 use Repository\genresRepository;
 use Repository\albums_genresRepository;
 use Repository\artistesRepository;
-
+# phpinfo();
 session_start();
 
 $request = $_SERVER['REQUEST_URI'];

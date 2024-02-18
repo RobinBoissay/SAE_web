@@ -44,7 +44,7 @@
                 <input class="btnSearch" type="submit" value="">
             </form>
         </div>
-        <div><a href="/admin">Admin</a></div>
+        <div class="btnAdmin"><a href="/admin" >Admin</a></div>
 
     </header>
     <main>
