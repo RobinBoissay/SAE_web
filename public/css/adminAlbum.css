@@ -1,0 +1,14 @@
+
+
+.wrapperGenre{
+    max-width: 500px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inputGenre{
+    border-radius: 20px;
+    background-color: #126A5C;
+    padding: 5px;
+}
