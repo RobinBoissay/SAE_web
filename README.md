@@ -8,7 +8,9 @@ Robin Boissay (Designer et developpeur frontend)
 ## Lancement du projet
 
 placer vous dans le dossier public dans un terminal puis lancer les commandes : 
+
 php createDB.php
+
 php -S localhost:8000
 
 Problème possible : 
@@ -27,13 +29,13 @@ Maintenant que vous savez ou se trouve votre php fait l'étape du dessus.
 
 # Affichage
 
-Affichage des albums
-Détail des albums
-Détail d’un artiste avec ses albums
-Recherche avancée dans les albums (par artiste, par genre, par année, etc.)
+- Affichage des albums
+- Détail des albums
+- Détail d’un artiste avec ses albums
+- Recherche avancée dans les albums (par artiste, par genre, par année, etc.)
 
 # CRUD
 
-CRUD pour un album (Manque l'upload des images)
-CRUD pour un artiste
-CRUD pour un genre
+- CRUD pour un album (Manque l'upload des images)
+- CRUD pour un artiste
+- CRUD pour un genre
