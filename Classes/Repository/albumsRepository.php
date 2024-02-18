@@ -115,8 +115,9 @@ class albumsRepository{
         return $result->fetchColumn();
     }
 
-    public function create($titre, $artiste_id, $annee, $image)
+    public function create($titre, $artiste_id, $annee, $image, $genre_id)
     {
+
         $stmt = $this->pdo->prepare('INSERT INTO albums (titre, artiste_id, annee, image, date) VALUES (:titre, :artiste_id, :annee, :image, :date)');
         $stmt->bindParam(':titre', $titre, SQLITE3_TEXT);
         $stmt->bindParam(':artiste_id', $artiste_id, SQLITE3_INTEGER);
@@ -124,9 +125,17 @@ class albumsRepository{
         $stmt->bindParam(':image', $image, SQLITE3_TEXT);
         $stmt->bindParam(':date', date('Y-m-d H:i:s'), SQLITE3_TEXT);
         $stmt->execute();
+
+        $albumId = $this->pdo->lastInsertId();
+        foreach ($genre_id as $genreId) {
+            $stmt = $this->pdo->prepare('INSERT INTO albums_genres (album_id, genre_id) VALUES (:album_id, :genre_id)');
+            $stmt->bindParam(':album_id', $albumId, SQLITE3_INTEGER);
+            $stmt->bindParam(':genre_id', $genreId, SQLITE3_INTEGER);
+            $stmt->execute();
+        }
     }
 
-    public function update($id, $titre, $artiste_id, $annee, $image)
+    public function update($id, $titre, $artiste_id, $annee, $image, $genre_id)
     {
         $stmt = $this->pdo->prepare('UPDATE albums SET titre = :titre, artiste_id = :artiste_id, annee = :annee, image = :image WHERE id = :id');
         $stmt->bindParam(':id', $id, SQLITE3_INTEGER);
@@ -135,6 +144,17 @@ class albumsRepository{
         $stmt->bindParam(':annee', $annee, SQLITE3_INTEGER);
         $stmt->bindParam(':image', $image, SQLITE3_TEXT);
         $stmt->execute();
+
+        $stmt = $this->pdo->prepare('DELETE FROM albums_genres WHERE album_id = :album_id');
+        $stmt->bindParam(':album_id', $id, SQLITE3_INTEGER);
+        $stmt->execute();
+
+        foreach ($genre_id as $genreId) {
+            $stmt = $this->pdo->prepare('INSERT INTO albums_genres (album_id, genre_id) VALUES (:album_id, :genre_id)');
+            $stmt->bindParam(':album_id', $id, SQLITE3_INTEGER);
+            $stmt->bindParam(':genre_id', $genreId, SQLITE3_INTEGER);
+            $stmt->execute();
+        }
     }
 
     public function delete($id)

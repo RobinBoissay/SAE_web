@@ -3,6 +3,7 @@
 namespace Repository;
 
 use Entity\albums_genres;
+use Entity\genres;
 use PDOFactory;
 
 class albums_genresRepository{
@@ -44,6 +45,18 @@ class albums_genresRepository{
             $albums_genres[] = new albums_genres($value['$id'], $value['album_id'], $value['genre_id']);
         }
         return $albums_genres;
+    }
+
+    public function findAllGenresByAlbum($album_id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM genres WHERE id IN (SELECT genre_id FROM albums_genres WHERE album_id = :album_id)');
+        $stmt->bindParam(':album_id', $album_id, SQLITE3_INTEGER);
+        $stmt->execute();
+        $genres = [];
+        foreach ($stmt as $value) {
+            $genres[] = new genres($value['id'], $value['nom']);
+        }
+        return $genres;
     }
 
 }
