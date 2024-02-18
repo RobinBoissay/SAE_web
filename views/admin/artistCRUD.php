@@ -27,7 +27,7 @@
                 echo "<td>
                     <form method='POST' action='/admin/artists'>
                         <input type='hidden' name='id' value='" . $artiste->getId() . "'>
-                        <input type='text' name='nom' placeholder='Nom de l'artiste'>
+                        <input type='text' name='nom' placeholder='" .$artiste->getNom()."'>
                         <input type='hidden' name='_method' value='PUT'>
                         <button type='submit'>Editer</button>
                     </form>

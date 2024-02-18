@@ -132,10 +132,10 @@ switch ($request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             switch ($_POST['_method']) {
                 case 'POST':
-                    $albumsRepository->create($_POST['titre'], $_POST['artiste'], $_POST['annee'], $_POST['image']);
+                    $albumsRepository->create($_POST['titre'], $_POST['artiste_id'], $_POST['annee'], $_POST['image'], $_POST['genres']);
                     break;
                 case 'PUT':
-                    $albumsRepository->update($_POST['id'], $_POST['titre'], $_POST['artiste'], $_POST['annee'], $_POST['image']);
+                    $albumsRepository->update($_POST['id'], $_POST['titre'], $_POST['artiste_id'], $_POST['annee'], $_POST['image'], $_POST['genres']);
                     break;
                 case 'DELETE':
                     $albumsRepository->delete($_POST['id']);
@@ -143,7 +143,13 @@ switch ($request) {
             }    
         }
         $albums = $albumsRepository->findAll();
+        $albumsGenres = [];
+
+        foreach ($albums as $album) {
+            $albumsGenres[$album->getId()] = $albums_genresRepository->findAllGenresByAlbum($album->getId());
+        }
         $artistes = $artistesRepository->findAll();
+        $genres = $genresRepository->findAll();
         require __DIR__ . '/../views/admin/albumCRUD.php';
         break;
     default:
