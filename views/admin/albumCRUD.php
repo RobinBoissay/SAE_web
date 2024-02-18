@@ -1,4 +1,3 @@
-<link href="../css/adminAlbum.css" rel="stylesheet">
 <section class="content">
     <h2>Albums</h2>
     <form method="POST" action="/admin/albums">
@@ -6,7 +5,8 @@
         <input type="text" name="annee" placeholder="Année de l'album">
         <select name="artiste_id">
             <?php foreach ($artistes as $artiste) { ?>
-                <option value="<?php echo $artiste->getId(); ?>"><?php echo $artiste->getNom(); ?></option>
+
+                <option value="<?php echo $artiste->getId(); ?>"><?php echo $artiste->getNom().$artiste->getId(); ?></option>
             <?php } ?>
         </select>
         <input type="text" name="image" placeholder="Image de l'album">
